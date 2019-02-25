@@ -148,4 +148,3 @@ if __name__ == "__main__":
     else:
         for each_result in results:
             print(each_result)
-    print(wrap_it(check_all_stores_dict(cardtoSearch)))
