@@ -95,7 +95,17 @@ def check_all_stores(card_name):
     return check_da_planet(card_name)+check_ideal808(card_name)+check_durdle_zone(card_name)
 
 def check_all_stores_dict(card_name):
-    return {"Durdle Zone":check_durdle_zone(card_name),"Da Planet":check_da_planet(card_name),"Ideal808":check_ideal808(card_name)}
+    outDict = {}
+    durdle = check_durdle_zone(card_name)
+    daplanet = check_da_planet(card_name)
+    ideal808 = check_ideal808(card_name)
+    if durdle:
+        outDict["Durdle Zone"] = durdle
+    if daplanet:
+        outDict["Da Planet"] = daplanet
+    if ideal808:
+        outDict["Ideal808"] = ideal808
+    return outDict
 
 def cheapest_of_all(card_name):
     return cheapest(check_all_stores(card_name))
@@ -138,3 +148,4 @@ if __name__ == "__main__":
     else:
         for each_result in results:
             print(each_result)
+    print(wrap_it(check_all_stores_dict(cardtoSearch)))
